@@ -1,0 +1,8 @@
+#!/run/current-system/sw/bin/bash
+i3status | while :
+do
+    read line
+    uptime=`uptime | awk '{split($0,a,",");split(a[1],b);print (b[2]" "b[3]);}'`
+    mostCpu=`ps h -e --sort=-pcpu -o args | head -n1 | awk '{split($1,a,"/");print a[length(a)]}'`
+    echo "$mostCpu | $line | $uptime" || exit 1
+done

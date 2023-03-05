@@ -1,0 +1,12 @@
+set rnu
+set nu
+set incsearch
+set hlsearch
+set clipboard=unnamedplus
+
+nnoremap <Space>/ /\c<CR>h
+nnoremap <Space>fu :action FindUsages<CR>
+nnoremap <Space>fip :action FindInPath<CR>
+nnoremap <Space>rip :action ReplaceInPath<CR>
+nnoremap <Space>ff :action OptimizeImports<CR>:action ReformatCode<CR>
+nnoremap <Space>su :action RenameElement<CR>

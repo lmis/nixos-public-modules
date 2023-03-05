@@ -1,0 +1,6 @@
+#!/run/current-system/sw/bin/bash
+while true; do
+   xrandr --output HDMI-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --scale 1x1 --output DP-2 --off --output HDMI-2 --off --output eDP-1 --off --output DP-1 --off ||\
+   xrandr --output eDP-1 --primary --scale $1 --auto --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off;
+  sleep 3s;
+done;

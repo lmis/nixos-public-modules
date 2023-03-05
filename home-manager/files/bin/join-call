@@ -1,0 +1,21 @@
+set -m
+
+on_join() {
+  echo "Joining"
+  xautolock -disable
+  # Chromium randomly sets input volume when in a call. This fights back.
+  while sleep 0.1;
+  do
+    amixer set Capture 25% > /dev/null;
+  done
+}
+
+cleanup() {
+  echo "Cleanup"
+  xautolock -enable
+}
+
+trap cleanup EXIT
+
+export -f on_join
+timeout 60m bash -c on_join
